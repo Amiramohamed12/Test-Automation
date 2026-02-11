@@ -19,9 +19,8 @@ public class DynamicTest {
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
             //Add box
-            //   By addBoxElement = By.xpath("//*[@id=\"adder\"]");
-            // WebElement webAddBoxElement = driver.findElement(addBoxElement);
-            WebElement webAddBoxElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"adder\"]")));
+            By addBoxElement = By.xpath("//*[@id=\"adder\"]");
+            WebElement webAddBoxElement = wait.until(ExpectedConditions.presenceOfElementLocated(addBoxElement));  //Explict wait
             webAddBoxElement.click();
 
             //Reveal new input
@@ -33,6 +32,7 @@ public class DynamicTest {
             By fieldElement = By.xpath("//*[@id=\"revealed\"]");
             WebElement webFieldElement = driver.findElement(fieldElement);
             webFieldElement.sendKeys("Hi");
+
 
 
         }
